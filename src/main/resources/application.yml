@@ -12,9 +12,9 @@ girl:
 spring:
     datasource:
         name: test
-        url: jdbc:mysql://127.0.0.1:3306/depot
+        url: jdbc:mysql://127.0.0.1:3306/mytest
         username: root
-        password: root
+        password: admin
         # 使用druid数据源
         type: com.alibaba.druid.pool.DruidDataSource
         driver-class-name: com.mysql.jdbc.Driver
