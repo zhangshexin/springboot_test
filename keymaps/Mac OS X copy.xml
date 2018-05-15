@@ -1,4 +1,7 @@
 <keymap version="1" name="Mac OS X copy" parent="Mac OS X">
+  <action id="IncrementalSearch">
+    <keyboard-shortcut first-keystroke="shift f" />
+  </action>
   <action id="SearchEverywhere">
     <keyboard-shortcut first-keystroke="shift meta f" />
   </action>
