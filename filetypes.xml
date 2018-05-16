@@ -3,6 +3,7 @@
     <extensionMap>
       <mapping pattern="Dockerfile" type="PLAIN_TEXT" />
       <mapping pattern="dockerFile" type="PLAIN_TEXT" />
+      <mapping ext="key" type="PLAIN_TEXT" />
     </extensionMap>
   </component>
 </application>
