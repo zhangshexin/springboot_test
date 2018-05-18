@@ -3,9 +3,6 @@
     <keyboard-shortcut first-keystroke="shift ctrl f" />
     <keyboard-shortcut first-keystroke="shift alt f" />
   </action>
-  <action id="IncrementalSearch">
-    <keyboard-shortcut first-keystroke="shift f" />
-  </action>
   <action id="SearchEverywhere">
     <keyboard-shortcut first-keystroke="shift meta f" />
   </action>
