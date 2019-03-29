@@ -10,6 +10,10 @@
           <option name="url" value="http://zhangshexin@59.110.154.225/review/a/ucenter" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="http://59.110.154.225/review/ucenter" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
       </list>
     </option>
     <option name="cloneParentDir" value="$USER_HOME$/zhangshexin/web_workspace/ipr" />
