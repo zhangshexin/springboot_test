@@ -1,7 +1,7 @@
-package com.sam.sct.mytest.action;
+package com.sam.sct.mytest.ucenter.action;
 
 
-import com.sam.sct.mytest.beans.GirlProperties;
+import com.sam.sct.mytest.ucenter.beans.GirlProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;

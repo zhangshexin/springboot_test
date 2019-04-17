@@ -1,4 +1,4 @@
-package com.sam.sct.mytest.service.user;
+package com.sam.sct.mytest.ucenter.service;
 
 import com.github.pagehelper.PageHelper;
 import com.sam.sct.mytest.entity.User;

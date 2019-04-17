@@ -1,7 +1,7 @@
-package com.sam.sct.mytest.action.user;
+package com.sam.sct.mytest.ucenter.action;
 
 import com.sam.sct.mytest.entity.User;
-import com.sam.sct.mytest.service.user.UserService;
+import com.sam.sct.mytest.ucenter.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

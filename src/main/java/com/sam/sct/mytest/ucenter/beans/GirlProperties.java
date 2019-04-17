@@ -1,4 +1,4 @@
-package com.sam.sct.mytest.beans;
+package com.sam.sct.mytest.ucenter.beans;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
