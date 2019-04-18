@@ -127,11 +127,14 @@
   </update>
   <!--add by sam-->
   <!--返回所有状态为正常的且以更新时间倒序-->
-  <select id="selectAll" resultMap="BaseResultMap">
+  <select id="selectAll" resultMap="BaseResultMap" parameterType="java.lang.Integer">
     select
     <include refid="Base_Column_List" />
     from t_questions
     WHERE status = #{status,jdbcType=INTEGER} and special_id=#{specialId,jdbcType=INTEGER} ORDER BY update_date DESC
+    <if test="sCount != 0">
+    limit ${sCount}
+    </if>
   </select>
 
   <!--返回指定的specialId对应的考试，用于人员管理专题组-->

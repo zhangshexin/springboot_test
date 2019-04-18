@@ -22,9 +22,9 @@ public class QuestionsServiceImpl implements QuestionsService{
     private QuestionsMapper questionsMapper;
 
     @Override
-    public PageInfo<Questions> getPageQuestions(int pageNum, int pageSize,int specialId,int status) {
+    public PageInfo<Questions> getPageQuestions(int pageNum, int pageSize,int specialId,int status,int count) {
         PageHelper.startPage(pageNum,pageSize);
-        List<Questions> questionsList=questionsMapper.selectAll(specialId,status);
+        List<Questions> questionsList=questionsMapper.selectAll(specialId,status, count);
         return new PageInfo<>(questionsList);
     }
 

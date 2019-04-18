@@ -10,7 +10,7 @@ import java.util.List;
  * @createTime 2019/4/18
  */
 public interface QuestionsService {
-    PageInfo<Questions> getPageQuestions(int pageNum,int pageSize,int specialId,int status);
+    PageInfo<Questions> getPageQuestions(int pageNum,int pageSize,int specialId,int status,int count);
 
     /**
      * 根据专题对应的考题id进行查找，这里是因为人工指定的考题

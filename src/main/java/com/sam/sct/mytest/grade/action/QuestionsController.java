@@ -21,19 +21,20 @@ public class QuestionsController {
 
 
     /**
-     * 返回所有可用的考题
+     * 返回所有可用的考题，随机考题组用这个接口
      * @return
      */
-    @ApiOperation(value="返回所有可用的考题", notes="返回所有可用的考题",produces = "application/json")
+    @ApiOperation(value="返回所有可用的考题，随机考题组用这个接口", notes="返回所有可用的考题，随机考题组用这个接口",produces = "application/json")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "pageNum",value = "页码",type ="Integer" ),
             @ApiImplicitParam(name = "pageSize",value = "一页多少条",type ="Integer"),
             @ApiImplicitParam(name = "specialId",value = "专题id",type ="Integer"),
-            @ApiImplicitParam(name = "status",value = "1：未删除，0：已删除",type ="Integer")
+            @ApiImplicitParam(name = "status",value = "1：未删除，0：已删除",type ="Integer"),
+            @ApiImplicitParam(name = "count",value = "专题中定义的考题数量,如果要全部就给个0",type ="Integer")
     })
     @RequestMapping(value = "/list",method = RequestMethod.GET)
-    public Object getActivityQuestionsList(@RequestParam(value = "specialId")int specialId,@RequestParam(value = "status")int status,@RequestParam(value = "pageNum")int pageNum,@RequestParam(value = "pageSize")int pageSize){
-        return ResultUtile.result(ResultUtile.SUCCESS,null,questionsService.getPageQuestions(pageNum,pageSize,specialId,status));
+    public Object getActivityQuestionsList(@RequestParam(value = "specialId")int specialId,@RequestParam(value = "count")int count,@RequestParam(value = "status")int status,@RequestParam(value = "pageNum")int pageNum,@RequestParam(value = "pageSize")int pageSize){
+        return ResultUtile.result(ResultUtile.SUCCESS,null,questionsService.getPageQuestions(pageNum,pageSize,specialId,status,count));
     }
 
     /**
