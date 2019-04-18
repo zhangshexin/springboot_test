@@ -15,7 +15,7 @@ public interface GradeService {
      * 返回前多少的成绩
      * @return
      */
-    List<Grade> selectTop(int limit);
+    List<Grade> selectTop(int limit,int specialId);
 
     /**
      * 保存或更新成绩
@@ -29,6 +29,6 @@ public interface GradeService {
      * @param userId
      * @return
      */
-    GradeWithRank seleGradeByUserId(int userId);
+    GradeWithRank seleGradeByUserId(int userId,int specialId);
 
 }

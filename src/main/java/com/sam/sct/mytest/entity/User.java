@@ -19,6 +19,8 @@ public class User {
 
     private String phoneNumber;
 
+    private String role="consumer";//角色.默认用户
+
     public Integer getId() {
         return id;
     }
@@ -81,5 +83,13 @@ public class User {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber == null ? null : phoneNumber.trim();
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }

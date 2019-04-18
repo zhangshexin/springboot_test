@@ -15,6 +15,8 @@ public class Grade {
 
     private Integer status=1;
 
+    private Integer specialId;//专题id
+
     public Integer getIdt() {
         return idt;
     }
@@ -61,5 +63,13 @@ public class Grade {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public Integer getSpecialId() {
+        return specialId;
+    }
+
+    public void setSpecialId(Integer specialId) {
+        this.specialId = specialId;
     }
 }

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sam.sct.mytest.mapper.SpecialMapper" >
+  <resultMap id="BaseResultMap" type="com.sam.sct.mytest.entity.Special" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="special_name" property="specialName" jdbcType="VARCHAR" />
+    <result column="special_des" property="specialDes" jdbcType="VARCHAR" />
+    <result column="test_time" property="testTime" jdbcType="INTEGER" />
+    <result column="count" property="count" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+    <result column="questions" property="questions" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, special_name, special_des, test_time, `count`, status, create_date, update_date,
+    questions, `type`
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_special
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_special
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.sam.sct.mytest.entity.Special" >
+    insert into t_special (id, special_name, special_des, 
+      test_time, `count`, status,
+      create_date, update_date, questions, 
+      `type`)
+    values (#{id,jdbcType=INTEGER}, #{specialName,jdbcType=VARCHAR}, #{specialDes,jdbcType=VARCHAR}, 
+      #{testTime,jdbcType=INTEGER}, #{count,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}, #{questions,jdbcType=VARCHAR}, 
+      #{type,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sam.sct.mytest.entity.Special" >
+    insert into t_special
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="specialName != null" >
+        special_name,
+      </if>
+      <if test="specialDes != null" >
+        special_des,
+      </if>
+      <if test="testTime != null" >
+        test_time,
+      </if>
+      <if test="count != null" >
+        `count`,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+      <if test="questions != null" >
+        questions,
+      </if>
+      <if test="type != null" >
+        `type`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="specialName != null" >
+        #{specialName,jdbcType=VARCHAR},
+      </if>
+      <if test="specialDes != null" >
+        #{specialDes,jdbcType=VARCHAR},
+      </if>
+      <if test="testTime != null" >
+        #{testTime,jdbcType=INTEGER},
+      </if>
+      <if test="count != null" >
+        #{count,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="questions != null" >
+        #{questions,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sam.sct.mytest.entity.Special" >
+    update t_special
+    <set >
+      <if test="specialName != null" >
+        special_name = #{specialName,jdbcType=VARCHAR},
+      </if>
+      <if test="specialDes != null" >
+        special_des = #{specialDes,jdbcType=VARCHAR},
+      </if>
+      <if test="testTime != null" >
+        test_time = #{testTime,jdbcType=INTEGER},
+      </if>
+      <if test="count != null" >
+        `count` = #{count,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="questions != null" >
+        questions = #{questions,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        `type` = #{type,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sam.sct.mytest.entity.Special" >
+    update t_special
+    set special_name = #{specialName,jdbcType=VARCHAR},
+      special_des = #{specialDes,jdbcType=VARCHAR},
+      test_time = #{testTime,jdbcType=INTEGER},
+      `count` = #{count,jdbcType=INTEGER},
+      status = #{status,jdbcType=INTEGER},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      questions = #{questions,jdbcType=VARCHAR},
+      `type` = #{type,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <!--add by sam-->
+  <select id="selectAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_special
+    WHERE status = 1 order BY update_date DESC
+  </select>
+  <!--批量逻辑删除-->
+  <update id="deleteSpecial">
+    UPDATE t_special
+    SET status = 0
+    where id IN
+    <foreach collection="array" index="index" item="item" open="(" separator="," close=")">
+      #{item}
+    </foreach>
+  </update>
+
+  <!--批量恢复-->
+  <update id="recoverSpecial">
+    UPDATE t_special
+    SET status = 0
+    where id IN
+    <foreach collection="array" index="index" item="item" open="(" separator="," close=")">
+      #{item}
+    </foreach>
+  </update>
+</mapper>

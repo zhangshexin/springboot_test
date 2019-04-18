@@ -8,6 +8,7 @@
         <result column="create_date" property="createDate" jdbcType="TIMESTAMP"/>
         <result column="updata_date" property="updataDate" jdbcType="TIMESTAMP"/>
         <result column="status" property="status" jdbcType="INTEGER"/>
+        <result column="special_id" property="specialId" jdbcType="INTEGER"/>
     </resultMap>
     <sql id="Base_Column_List">
     idt, user_id, grade, create_date, updata_date, status
@@ -24,10 +25,10 @@
   </delete>
     <insert id="insert" parameterType="com.sam.sct.mytest.entity.Grade" keyProperty="idt" useGeneratedKeys="true">
     insert into t_grade (idt, user_id, grade, 
-      create_date, updata_date, status
+      create_date, updata_date, status,special_id
       )
     values (#{idt,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{grade,jdbcType=INTEGER}, 
-      #{createDate,jdbcType=TIMESTAMP}, #{updataDate,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}
+      #{createDate,jdbcType=TIMESTAMP}, #{updataDate,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, #{specialId,jdbcType=INTEGER}
       )
   </insert>
     <insert id="insertSelective" parameterType="com.sam.sct.mytest.entity.Grade">
@@ -51,6 +52,9 @@
             <if test="status != null">
                 status,
             </if>
+            <if test="specialId != null">
+                special_id,
+            </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="idt != null">
@@ -70,6 +74,9 @@
             </if>
             <if test="status != null">
                 #{status,jdbcType=INTEGER},
+            </if>
+            <if test="specialId != null">
+                #{specialId,jdbcType=INTEGER},
             </if>
         </trim>
     </insert>
@@ -91,6 +98,9 @@
             <if test="status != null">
                 status = #{status,jdbcType=INTEGER},
             </if>
+            <if test="specialId != null">
+                special_id = #{specialId,jdbcType=INTEGER},
+            </if>
         </set>
         where idt = #{idt,jdbcType=INTEGER}
     </update>
@@ -101,6 +111,7 @@
       create_date = #{createDate,jdbcType=TIMESTAMP},
       updata_date = #{updataDate,jdbcType=TIMESTAMP},
       status = #{status,jdbcType=INTEGER}
+      special_id = #{specialId,jdbcType=INTEGER}
     where idt = #{idt,jdbcType=INTEGER}
   </update>
 
@@ -109,6 +120,7 @@
         SELECT
         <include refid="Base_Column_List"/>
         from t_grade
+        WHERE special_id=#{specialId,,jdbcType=INTEGER}
         ORDER BY grade DESC limit ${num}
     </select>
     <resultMap id="BaseResultMap2" type="com.sam.sct.mytest.ucenter.vo.GradeWithRank">
@@ -118,12 +130,13 @@
         <result column="create_date" property="createDate" jdbcType="TIMESTAMP"/>
         <result column="updata_date" property="updataDate" jdbcType="TIMESTAMP"/>
         <result column="status" property="status" jdbcType="INTEGER"/>
+        <result column="special_id" property="specialId" jdbcType="INTEGER"/>
         <result column="rank" property="rank" jdbcType="INTEGER"/>
     </resultMap>
     <!--这个sql主要是实现排名的功能-->
     <select id="seleGradeByUserId" parameterType="java.lang.Integer" resultMap="BaseResultMap2">
         select t.*,t.grade,
         (select count(s.grade)+1 from t_grade s where s.grade>t.grade) rank
-        from t_grade t where t.user_id=#{userId,jdbcType=INTEGER} order by t.grade desc ;
+        from t_grade t where t.user_id=#{userId,jdbcType=INTEGER} and t.special_id=#{specialId,jdbcType=INTEGER} order by t.grade desc ;
   </select>
 </mapper>

@@ -21,13 +21,13 @@ public class GradeServiceImpl implements GradeService{
     private GradeMapper gradeMapper;
 
     @Override
-    public List<Grade> selectTop(int limit) {
-        return gradeMapper.selectTop(limit);
+    public List<Grade> selectTop(int limit,int specialId) {
+        return gradeMapper.selectTop(limit,specialId);
     }
 
     @Override
     public Grade saveOrUpdateGrade(Grade grade) {
-        Grade grade1=gradeMapper.seleGradeByUserId(grade.getUserId());
+        Grade grade1=gradeMapper.seleGradeByUserId(grade.getUserId(),grade.getSpecialId());
         if(grade1!=null)
         {
             grade1.setGrade(grade.getGrade());
@@ -43,7 +43,7 @@ public class GradeServiceImpl implements GradeService{
     }
 
     @Override
-    public GradeWithRank seleGradeByUserId(int userId) {
-        return gradeMapper.seleGradeByUserId(userId);
+    public GradeWithRank seleGradeByUserId(int userId,int specialId) {
+        return gradeMapper.seleGradeByUserId(userId,specialId);
     }
 }

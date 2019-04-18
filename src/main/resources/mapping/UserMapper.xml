@@ -10,6 +10,7 @@
     <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
     <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
     <result column="phone_number" jdbcType="VARCHAR" property="phoneNumber" />
+    <result column="role" jdbcType="VARCHAR" property="role" />
   </resultMap>
   <sql id="Base_Column_List">
     id, name, pwd, email, status, create_date, update_date, phone_number
@@ -27,10 +28,10 @@
   <insert id="insert" parameterType="com.sam.sct.mytest.entity.User" useGeneratedKeys="true" keyProperty="id">
     insert into t_user (id, name, pwd, 
       email, status, create_date, 
-      update_date, phone_number)
+      update_date, phone_number,role)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{pwd,jdbcType=VARCHAR}, 
       #{email,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{createDate,jdbcType=TIMESTAMP}, 
-      #{updateDate,jdbcType=TIMESTAMP}, #{phoneNumber,jdbcType=VARCHAR})
+      #{updateDate,jdbcType=TIMESTAMP}, #{phoneNumber,jdbcType=VARCHAR},#{role,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.sam.sct.mytest.entity.User">
     insert into t_user
@@ -59,6 +60,9 @@
       <if test="phoneNumber != null">
         phone_number,
       </if>
+      <if test="role != null">
+        role,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -84,6 +88,9 @@
       </if>
       <if test="phoneNumber != null">
         #{phoneNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="role != null">
+        #{role,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
