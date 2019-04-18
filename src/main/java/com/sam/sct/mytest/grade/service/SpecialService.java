@@ -9,7 +9,7 @@ import com.sam.sct.mytest.entity.Special;
  */
 public interface SpecialService {
 
-    PageInfo<Special> getPageSpecial(int pageNum,int pageSize);
+    PageInfo<Special> getPageSpecial(int pageNum,int pageSize,int status);
 
     Special saveSpecial(Special special);
 

@@ -155,7 +155,7 @@
     select
     <include refid="Base_Column_List" />
     from t_special
-    WHERE status = 1 order BY update_date DESC
+    WHERE status = #{status,jdbcType=INTEGER} order BY update_date DESC
   </select>
   <!--批量逻辑删除-->
   <update id="deleteSpecial">

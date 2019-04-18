@@ -17,7 +17,7 @@ public interface SpecialMapper {
 
     int updateByPrimaryKey(Special record);
 
-    List<Special> selectAll();
+    List<Special> selectAll(int status);
     int deleteSpecial(int[] specialIds);
     int recoverSpecial(int[] specialIds);
 }

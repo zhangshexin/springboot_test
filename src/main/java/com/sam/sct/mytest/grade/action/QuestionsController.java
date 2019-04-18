@@ -5,10 +5,7 @@ import com.sam.sct.mytest.grade.service.QuestionsService;
 import com.sam.sct.mytest.util.ResultUtile;
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author zhangshexin
@@ -64,11 +61,8 @@ public class QuestionsController {
      * @return
      */
     @ApiOperation(value="保存或更新考题", notes="保存或更新考题",produces = "application/json")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "question",value = "question",type ="Question" )
-    })
     @RequestMapping(value = "/save",method = RequestMethod.POST)
-    public Object saveOrUpdateQuestion(@RequestParam(value ="question")@ApiParam Questions question){
+    public Object saveOrUpdateQuestion(@RequestBody Questions question){
         //根据id判断是更新还是插入
         if(question.getId()==0){
             return ResultUtile.result(ResultUtile.SUCCESS,null, questionsService.saveQuestion(question));

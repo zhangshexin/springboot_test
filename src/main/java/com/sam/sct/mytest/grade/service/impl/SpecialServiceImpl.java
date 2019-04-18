@@ -21,9 +21,9 @@ public class SpecialServiceImpl implements SpecialService{
     private SpecialMapper specialMapper;
 
     @Override
-    public PageInfo<Special> getPageSpecial(int pageNum, int pageSize) {
+    public PageInfo<Special> getPageSpecial(int pageNum, int pageSize,int status) {
         PageHelper.startPage(pageNum,pageSize);
-        List<Special> specials=specialMapper.selectAll();
+        List<Special> specials=specialMapper.selectAll(status);
         return new PageInfo<>(specials);
     }
 
