@@ -10,7 +10,37 @@ import java.util.List;
  * @createTime 2019/4/18
  */
 public interface QuestionsService {
-    PageInfo<Questions> getPageQuestions(int pageNum,int pageSize,int specialId,int status,int count);
+    /**
+     * 根据 状态和专题分页返回
+     * @param pageNum
+     * @param pageSize
+     * @param specialId
+     * @param status
+     * @return
+     */
+    PageInfo<Questions> getPageQuestions(int pageNum,int pageSize,int specialId,int status);
+
+    /**
+     * 根据要求返回对应专题随机条数的考题
+     * @param count
+     * @return
+     */
+    List<Questions> getRandomQuestionsListByCount(int specialId,int count);
+
+    /**
+     * 返回指定专题的所有考题
+     * @param specialId
+     * @param status
+     * @return
+     */
+    List<Questions> getAllQuestions(int specialId,int status);
+
+
+    /**
+     * 取考题总数
+     * @return
+     */
+    int getQuestionsCount();
 
     /**
      * 根据专题对应的考题id进行查找，这里是因为人工指定的考题

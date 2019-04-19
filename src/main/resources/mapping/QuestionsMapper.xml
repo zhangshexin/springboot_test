@@ -132,9 +132,6 @@
     <include refid="Base_Column_List" />
     from t_questions
     WHERE status = #{status,jdbcType=INTEGER} and special_id=#{specialId,jdbcType=INTEGER} ORDER BY update_date DESC
-    <if test="sCount != 0">
-    limit ${sCount}
-    </if>
   </select>
 
   <!--返回指定的specialId对应的考试，用于人员管理专题组-->
@@ -167,4 +164,24 @@
       #{item}
     </foreach>
   </update>
+
+  <!--返回指定的专题的随机数量的考题；这个sql是无法保证随机个数与要求一样多的，所以需要判断，不否合的需要执行多次-->
+  <select id="getRandomQuestionsListByCount" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    SELECT * FROM t_questions WHERE
+    id >= (SELECT  floor(RAND() * (SELECT MAX(id) FROM t_questions))) and special_id = #{specialId,jdbcType=INTEGER} and status = 1
+    ORDER BY id LIMIT ${c};
+  </select>
+
+  <!--返回指定专题的所有考题-->
+  <select id="getAllQuestions" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_questions
+    WHERE status = #{status,jdbcType=INTEGER} and special_id = #{specialId,jdbcType=INTEGER}
+  </select>
+
+  <!--返回数据总条数-->
+  <select id="getQuestionsCount" resultType="java.lang.Integer">
+    select count(id) from t_questions where status = 1
+  </select>
 </mapper>

@@ -19,11 +19,17 @@ public interface QuestionsMapper {
     int updateByPrimaryKey(Questions record);
 
 
-    List<Questions> selectAll(int specialId,int status,@Param("sCount") int count);
+    List<Questions> selectAll(int specialId,int status);
 
     List<Questions> selectBySpecialId(int[] ids);
 
     int deleteQuestion(int[] ids);
 
     int recoverQuestion(int[] ids);
+
+    List<Questions> getRandomQuestionsListByCount(int specialId, @Param(value = "c") int count);
+
+    List<Questions> getAllQuestions(int specialId,int status);
+
+    int getQuestionsCount();
 }

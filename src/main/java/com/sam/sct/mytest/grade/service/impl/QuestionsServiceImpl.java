@@ -22,9 +22,9 @@ public class QuestionsServiceImpl implements QuestionsService{
     private QuestionsMapper questionsMapper;
 
     @Override
-    public PageInfo<Questions> getPageQuestions(int pageNum, int pageSize,int specialId,int status,int count) {
+    public PageInfo<Questions> getPageQuestions(int pageNum, int pageSize,int specialId,int status) {
         PageHelper.startPage(pageNum,pageSize);
-        List<Questions> questionsList=questionsMapper.selectAll(specialId,status, count);
+        List<Questions> questionsList=questionsMapper.selectAll(specialId,status);
         return new PageInfo<>(questionsList);
     }
 
@@ -57,5 +57,20 @@ public class QuestionsServiceImpl implements QuestionsService{
     @Override
     public int recoverQuestion(int[] questionsId) {
         return questionsMapper.recoverQuestion(questionsId);
+    }
+
+    @Override
+    public List<Questions> getRandomQuestionsListByCount(int specialId, int count) {
+        return questionsMapper.getRandomQuestionsListByCount(specialId,count);
+    }
+
+    @Override
+    public List<Questions> getAllQuestions(int specialId, int status) {
+        return questionsMapper.getAllQuestions(specialId,status);
+    }
+
+    @Override
+    public int getQuestionsCount() {
+        return questionsMapper.getQuestionsCount();
     }
 }
