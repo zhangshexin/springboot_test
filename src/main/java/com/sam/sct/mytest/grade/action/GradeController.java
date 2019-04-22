@@ -31,7 +31,7 @@ public class GradeController {
             @ApiImplicitParam(name = "num",value = "返回前多少名",type ="Integer" ),
             @ApiImplicitParam(name = "specialId",value = "专题id",type ="Integer")
     })
-    @RequestMapping("/top/{num}/{specialId}")
+    @RequestMapping(value = "/top/{num}/{specialId}",method = RequestMethod.GET)
     public Object getGradeTop(@PathVariable(value = "num")int top ,@PathVariable("specialId")int specialId){
         return ResultUtile.result(ResultUtile.SUCCESS,null,gradeService.selectTop(top,specialId));
     }
@@ -46,7 +46,7 @@ public class GradeController {
             @ApiImplicitParam(name = "userId", value = "用户id", type = "Integer"),
             @ApiImplicitParam(name = "specialId", value = "专题id", type = "Integer")
     })
-    @RequestMapping("/{userId}/{specialId}")
+    @RequestMapping(value = "/{userId}/{specialId}",method = RequestMethod.GET)
     public Object getUserGrade(@PathVariable("userId")int userId,@PathVariable("specialId")int specialId){
         return ResultUtile.result(ResultUtile.SUCCESS,null,gradeService.seleGradeByUserId(userId,specialId));
     }

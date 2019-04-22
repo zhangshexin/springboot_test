@@ -19,7 +19,7 @@ public class User {
 
     private String phoneNumber;
 
-    private String role="consumer";//角色.默认用户
+    private String role;
 
     public Integer getId() {
         return id;
@@ -90,6 +90,6 @@ public class User {
     }
 
     public void setRole(String role) {
-        this.role = role;
+        this.role = role == null ? null : role.trim();
     }
 }

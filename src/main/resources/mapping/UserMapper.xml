@@ -13,7 +13,7 @@
     <result column="role" jdbcType="VARCHAR" property="role" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, name, pwd, email, status, create_date, update_date, phone_number
+    id, name, pwd, email, status, create_date, update_date, phone_number, role
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
