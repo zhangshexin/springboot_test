@@ -29,7 +29,7 @@ public interface QuestionsMapper {
 
     List<Questions> getRandomQuestionsListByCount(int specialId, @Param(value = "c") int count);
 
-    List<Questions> getAllQuestions(int specialId,int status);
+    List<Questions> getAllQuestions(@Param("specialId") int specialId,@Param("status") int status);
 
     int getQuestionsCount();
 }

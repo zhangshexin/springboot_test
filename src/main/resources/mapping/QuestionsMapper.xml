@@ -173,11 +173,11 @@
   </select>
 
   <!--返回指定专题的所有考题-->
-  <select id="getAllQuestions" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="getAllQuestions" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
     from t_questions
-    WHERE status = #{status,jdbcType=INTEGER} and special_id = #{specialId,jdbcType=INTEGER}
+    WHERE status = #{status} and special_id = #{specialId} ORDER BY update_date DESC
   </select>
 
   <!--返回数据总条数-->

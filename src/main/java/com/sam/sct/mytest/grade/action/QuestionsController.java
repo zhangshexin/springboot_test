@@ -59,12 +59,28 @@ public class QuestionsController {
         }
     }
 
+
+    /**
+     * 返回所有问题
+     * @param specialId
+     * @param count
+     * @return
+     */
+    @ApiOperation(value="返回所有问题", notes="返回所有问题")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "specialId",value = "专题id",type ="Integer")
+    })
+    @RequestMapping(value = "/all",method = RequestMethod.GET)
+    public Object getAllQuestion(@RequestParam(value = "specialId")int specialId){
+        return ResultUtile.result(ResultUtile.SUCCESS,null,questionsService.getAllQuestions(specialId,1));
+    }
+
     /**
      * 根据考题的ids返回对应的考题列表
      * @param ids
      * @return
      */
-    @ApiOperation(value="根据考题的ids返回对应的考题列表", notes="ids必须以项文逗号分隔",produces = "application/json")
+    @ApiOperation(value="根据考题的ids返回对应的考题列表", notes="ids必须以英文逗号分隔",produces = "application/json")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "ids",value = "id数组",type ="String" )
     })
