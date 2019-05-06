@@ -148,4 +148,9 @@
     SELECT <include refid="Base_Column_List" /> FROM t_user
     WHERE phone_number= #{phoneNumber,jdbcType=VARCHAR}
   </select>
+  <!--根据ids返回所有的用户-->
+  <select id="findByIds"  parameterType="java.lang.String" resultMap="BaseResultMap">
+    SELECT <include refid="Base_Column_List" /> FROM t_user
+    WHERE id in (#{ids});
+  </select>
 </mapper>

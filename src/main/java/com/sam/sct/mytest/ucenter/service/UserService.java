@@ -4,6 +4,8 @@ import com.github.pagehelper.PageInfo;
 import com.sam.sct.mytest.entity.User;
 import com.sam.sct.mytest.ucenter.vo.UserVo;
 
+import java.util.List;
+
 public interface UserService {
 
     int addUser(User user);
@@ -14,6 +16,8 @@ public interface UserService {
     User findUserByUser(User user);
 
     User saveUser(User user);
+
+    List<User> findByIds(String ids);
 
 
 }

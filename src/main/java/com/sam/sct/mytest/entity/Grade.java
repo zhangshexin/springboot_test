@@ -3,6 +3,20 @@ package com.sam.sct.mytest.entity;
 import java.util.Date;
 
 public class Grade {
+
+    //----start-------
+
+    private String phoneNum;
+
+    public String getPhoneNum() {
+        return phoneNum;
+    }
+
+    public void setPhoneNum(String phoneNum) {
+        this.phoneNum = phoneNum;
+    }
+
+    //----end-------
     private Integer idt;
 
     private Integer userId;

@@ -45,4 +45,9 @@ public class UserServiceImpl implements UserService {
         user.setId(id);
         return user;
     }
+
+    @Override
+    public List<User> findByIds(String ids) {
+        return userMapper.findByIds(ids);
+    }
 }
