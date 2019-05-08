@@ -110,7 +110,7 @@
       grade = #{grade,jdbcType=INTEGER},
       create_date = #{createDate,jdbcType=TIMESTAMP},
       updata_date = #{updataDate,jdbcType=TIMESTAMP},
-      status = #{status,jdbcType=INTEGER}
+      status = #{status,jdbcType=INTEGER},
       special_id = #{specialId,jdbcType=INTEGER}
     where idt = #{idt,jdbcType=INTEGER}
   </update>
@@ -120,7 +120,7 @@
         SELECT
         <include refid="Base_Column_List"/>
         from t_grade
-        WHERE special_id=#{specialId,,jdbcType=INTEGER}
+        WHERE special_id=#{specialId,jdbcType=INTEGER}
         ORDER BY grade DESC limit ${num}
     </select>
     <resultMap id="BaseResultMap2" type="com.sam.sct.mytest.ucenter.vo.GradeWithRank">
@@ -136,7 +136,7 @@
     <!--这个sql主要是实现排名的功能-->
     <select id="seleGradeByUserId" parameterType="java.lang.Integer" resultMap="BaseResultMap2">
         select t.*,t.grade,
-        (select count(s.grade)+1 from t_grade s where s.grade>t.grade) rank
-        from t_grade t where t.user_id=#{userId,jdbcType=INTEGER} and t.special_id=#{specialId,jdbcType=INTEGER} order by t.grade desc ;
+        (select count(s.grade)+1 from t_grade s where s.grade>t.grade and s.special_id=#{specialId,jdbcType=INTEGER} and s.status = 1) rank
+        from t_grade t where t.user_id=#{userId,jdbcType=INTEGER} and t.special_id=#{specialId,jdbcType=INTEGER} and t.status = 1 order by t.grade desc ;
   </select>
 </mapper>

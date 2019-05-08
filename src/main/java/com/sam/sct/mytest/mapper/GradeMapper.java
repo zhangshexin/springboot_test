@@ -25,12 +25,12 @@ public interface GradeMapper {
      * 返回前多少的成绩
      * @return
      */
-    List<Grade> selectTop(@Param(value = "num") int num,int specialId);
+    List<Grade> selectTop(@Param(value = "num") int num,@Param(value = "specialId") int specialId);
 
     /**
      * 根据用户id查找成绩
      * @param userId
      * @return
      */
-    GradeWithRank seleGradeByUserId(int userId,int specialId);
+    GradeWithRank seleGradeByUserId(@Param("userId") int userId,@Param("specialId")int specialId);
 }
