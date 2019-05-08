@@ -86,7 +86,7 @@ public class QuestionsController {
     })
     @RequestMapping(value = "/getIdsList",method = RequestMethod.GET)
     public Object getQuestionsByIds(@RequestParam(value = "ids",required = true)String ids){
-        String[] tmp = ids.split(",");
+        String[] tmp = ids.replaceAll("，",",").split(",");
         int[] _ids = new int[tmp.length];
         for (int i = 0; i < tmp.length; i++) {
             _ids[i] = Integer.valueOf(tmp[i]);
