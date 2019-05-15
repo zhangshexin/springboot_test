@@ -18,6 +18,10 @@
           <option name="url" value="http://125.76.225.33:10080/midu/SmartReader.git" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="http://125.76.225.33:10080/midu/SmartReader.git/" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
       </list>
     </option>
     <option name="cloneParentDir" value="$USER_HOME$/zhangshexin/web_workspace" />
