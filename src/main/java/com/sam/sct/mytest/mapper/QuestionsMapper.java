@@ -1,9 +1,6 @@
 package com.sam.sct.mytest.mapper;
 
 import com.sam.sct.mytest.entity.Questions;
-import org.apache.ibatis.annotations.Param;
-
-import java.util.List;
 
 public interface QuestionsMapper {
     int deleteByPrimaryKey(Integer id);
@@ -17,19 +14,4 @@ public interface QuestionsMapper {
     int updateByPrimaryKeySelective(Questions record);
 
     int updateByPrimaryKey(Questions record);
-
-
-    List<Questions> selectAll(int specialId,int status);
-
-    List<Questions> selectBySpecialId(int[] ids);
-
-    int deleteQuestion(int[] ids);
-
-    int recoverQuestion(int[] ids);
-
-    List<Questions> getRandomQuestionsListByCount(int specialId, @Param(value = "c") int count);
-
-    List<Questions> getAllQuestions(@Param("specialId") int specialId,@Param("status") int status);
-
-    int getQuestionsCount();
 }
