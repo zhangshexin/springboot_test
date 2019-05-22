@@ -1,6 +1,25 @@
 package com.sam.sct.mytest.entity;
 
+import java.util.List;
+
 public class Roles {
+
+
+    //////////////////new obj/////////////////////
+    /**
+     * 角色拥有的权限
+     */
+    private List<Permission> permissions;
+
+    public List<Permission> getPermissions() {
+        return permissions;
+    }
+
+    public void setPermissions(List<Permission> permissions) {
+        this.permissions = permissions;
+    }
+
+    //////////////////------/////////////////////
     private Integer id;
 
     private String roleName;
