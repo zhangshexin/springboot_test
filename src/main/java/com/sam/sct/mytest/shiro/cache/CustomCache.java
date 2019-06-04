@@ -1,5 +1,6 @@
 package com.sam.sct.mytest.shiro.cache;
 
+import com.sam.sct.mytest.util.JWTUtile;
 import org.apache.shiro.cache.Cache;
 import org.apache.shiro.cache.CacheException;
 
@@ -10,7 +11,7 @@ import java.util.Set;
  * @author zhangshexin
  * @createTime 2019/5/23
  */
-public class CustomCache implements Cache{
+public class CustomCache<K,V> implements Cache<K,V>{
     /**
      * redis-key-前缀-shiro:cache:
      */
@@ -21,6 +22,11 @@ public class CustomCache implements Cache{
      */
     private static final int EXPIRE_TIME=5* 60*1000;
 
+
+
+//    private String getKey(Object key){
+//        return PREFIX_SHIRO_CACHE+ JWTUtile.getu
+//    }
 
 
     @Override
