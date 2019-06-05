@@ -3,20 +3,21 @@
     <property name="created">2019-04-17T09:51:17</property>
     <property name="ide">idea</property>
     <property name="ideVersion">2017.3.1.0.0</property>
-    <property name="modified">2019-06-05T10:21:57</property>
+    <property name="modified">2019-06-05T10:26:06</property>
     <property name="originalScheme">Darcula</property>
   </metaInfo>
   <attributes>
     <option name="TEXT">
       <value>
-        <option name="FOREGROUND" value="0" />
-        <option name="BACKGROUND" value="c7edcc" />
+        <option name="FOREGROUND" value="c7edcc" />
+        <option name="BACKGROUND" value="3c3f41" />
         <option name="EFFECT_TYPE" value="5" />
       </value>
     </option>
     <option name="TEXT_SEARCH_RESULT_ATTRIBUTES">
       <value>
-        <option name="BACKGROUND" value="ffffff" />
+        <option name="FOREGROUND" value="3c3f41" />
+        <option name="BACKGROUND" value="3c3f41" />
       </value>
     </option>
   </attributes>
