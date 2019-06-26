@@ -43,6 +43,12 @@ public interface QuestionsService {
     int getQuestionsCount();
 
     /**
+     * 根据专题id计算考题总数
+     * @return
+     */
+    int getQuestionsCountBySpecialId(int specialId);
+
+    /**
      * 根据专题对应的考题id进行查找，这里是因为人工指定的考题
      * @param ids
      * @return

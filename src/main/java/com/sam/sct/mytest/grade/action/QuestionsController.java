@@ -50,7 +50,7 @@ public class QuestionsController {
     @RequestMapping(value = "/random",method = RequestMethod.GET)
     public Object getRandomQuestionList(@RequestParam(value = "specialId")int specialId,@RequestParam(value = "count")int count){
         //判断对应专题的考题数量是否够count指定的，如果小于等于直接返回全部的，否则进行随机
-        int totalCount=questionsService.getQuestionsCount();
+        int totalCount=questionsService.getQuestionsCountBySpecialId(specialId);
         if(count>=totalCount){
             //返回全部的且不分页
             return ResultUtile.result(ResultUtile.SUCCESS,null,questionsService.getAllQuestions(specialId,1));

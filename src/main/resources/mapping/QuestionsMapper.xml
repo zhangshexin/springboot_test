@@ -184,4 +184,9 @@
   <select id="getQuestionsCount" resultType="java.lang.Integer">
     select count(id) from t_questions where status = 1
   </select>
+
+  <!--返回对应专题数据总条数-->
+  <select id="getQuestionsCountBySpecialId" resultType="java.lang.Integer"  parameterType="java.lang.Integer">
+    select count(id) from t_questions where status = 1 and special_id = #{specialId}
+  </select>
 </mapper>

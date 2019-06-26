@@ -27,9 +27,10 @@ public interface QuestionsMapper {
 
     int recoverQuestion(int[] ids);
 
-    List<Questions> getRandomQuestionsListByCount(int specialId, @Param(value = "c") int count);
+    List<Questions> getRandomQuestionsListByCount(@Param("specialId") int specialId, @Param(value = "c") int count);
 
     List<Questions> getAllQuestions(@Param("specialId") int specialId,@Param("status") int status);
 
     int getQuestionsCount();
+    int getQuestionsCountBySpecialId(@Param("specialId") int specialId);
 }

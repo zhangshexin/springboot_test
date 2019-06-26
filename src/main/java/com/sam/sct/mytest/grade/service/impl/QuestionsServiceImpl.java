@@ -73,4 +73,9 @@ public class QuestionsServiceImpl implements QuestionsService{
     public int getQuestionsCount() {
         return questionsMapper.getQuestionsCount();
     }
+
+    @Override
+    public int getQuestionsCountBySpecialId(int specialId) {
+        return questionsMapper.getQuestionsCountBySpecialId(specialId);
+    }
 }
