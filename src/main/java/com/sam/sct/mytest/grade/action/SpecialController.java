@@ -26,7 +26,7 @@ public class SpecialController {
      * 返回所有可用的专题
      * @return
      */
-    @ApiOperation(value="返回所有可用的考题", notes="返回所有可用的考题",produces = "application/json")
+    @ApiOperation(value="返回所有可用的专题", notes="返回所有可用的专题",produces = "application/json")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "pageNum",value = "页码",type ="Integer" ),
             @ApiImplicitParam(name = "pageSize",value = "一页多少条",type ="Integer"),
