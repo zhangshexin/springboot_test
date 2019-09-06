@@ -4,6 +4,7 @@
       <mapping pattern="Dockerfile" type="PLAIN_TEXT" />
       <mapping pattern="dockerFile" type="PLAIN_TEXT" />
       <mapping pattern="RUN-DEMOS-AS-ofbizDemo-USER-ONLY-NOT-ROOT" type="PLAIN_TEXT" />
+      <mapping ext="pb" type="PLAIN_TEXT" />
       <mapping ext="key" type="PLAIN_TEXT" />
     </extensionMap>
   </component>
